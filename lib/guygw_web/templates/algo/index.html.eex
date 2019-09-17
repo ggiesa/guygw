@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+    <title>
+      Tabbed panels using CSS
+    </title>
+    <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/algo.css") %>"/>
+  </head>
+  <body>
+
+    <div class="tabbed">
+
+      <input name="tabbed" id="tabbed1" type="radio" checked>
+      <section>
+        <h1>
+          <label for="tabbed1">Python</label>
+        </h1>
+        <div>
+          <pre class="prettyprint lang-python">
+!python!
+          </pre>
+        </div>
+      </section>
+
+
+      <input name="tabbed" id="tabbed2" type="radio">
+      <section>
+        <h1>
+          <label for="tabbed2">Elixir</label>
+        </h1>
+        <div>
+          <pre class="prettyprint lang-ex">
+!elixir!
+          </pre>
+        </div>
+      </section>
+
+
+      <input name="tabbed" id="tabbed3" type="radio">
+      <section>
+        <h1>
+          <label for="tabbed3">Go</label>
+        </h1>
+        <div>
+          <pre class="prettyprint lang-go">
+!golang!
+          </pre>
+        </div>
+      </section>
+
+    </div>
+  </body>
+</html>
