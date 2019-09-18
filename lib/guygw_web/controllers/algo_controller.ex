@@ -7,4 +7,10 @@ defmodule GuygwWeb.AlgoController do
     |> render("index.html")
   end
 
+  def serve_algorithm_topic(conn, %{"topic" => topic}) do
+    conn
+    |> put_layout(false)
+    |> render("topic.html", topic: topic)
+  end
+
 end
