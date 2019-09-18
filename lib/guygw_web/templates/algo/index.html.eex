@@ -2,10 +2,7 @@
 <html>
   <head>
     <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
-    <title>
-      Tabbed panels using CSS
-    </title>
-    <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/algo.css") %>"/>
+    <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/algo_template.css") %>"/>
   </head>
   <body>
 
@@ -18,7 +15,7 @@
         </h1>
         <div>
           <pre class="prettyprint lang-python">
-!python!
+            <%=compose_python("arrays")%>
           </pre>
         </div>
       </section>
@@ -31,7 +28,7 @@
         </h1>
         <div>
           <pre class="prettyprint lang-ex">
-!elixir!
+            <%=compose_elixir("arrays")%>
           </pre>
         </div>
       </section>
@@ -44,7 +41,7 @@
         </h1>
         <div>
           <pre class="prettyprint lang-go">
-!golang!
+            <%=compose_golang("arrays")%>
           </pre>
         </div>
       </section>
