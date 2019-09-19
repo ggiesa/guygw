@@ -1,6 +1,3 @@
-<div class="blogContents">
-  <%=render_markdown_contents(assigns[:category], assigns[:topic])%>
-</div>
 
 <div id='codeExamples' class="tabbed">
 
