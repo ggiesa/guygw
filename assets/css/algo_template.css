@@ -1,9 +1,14 @@
+/* -------------- Main -------------- */
+
+
 body{
   padding     : 1.5em;
   background  : #f8f8f8;
   font-family : sans-serif;
   line-height : 1.5;
 }
+
+/* -------------- Tabbed Code Examples -------------- */
 
 .tabbed{
   float : left;
@@ -66,10 +71,12 @@ body{
   display : none;
 }
 
+/* -------------- Sidebar Nav -------------- */
+
 /* The side navigation menu */
 .sidenav {
   height: 100%; /* 100% Full-height */
-  width: 0; /* 0 width - change this with JavaScript */
+  width: 20px; /* 0 width - change this with JavaScript */
   position: fixed; /* Stay in place */
   z-index: 1; /* Stay on top */
   top: 0; /* Stay at the top */
@@ -82,30 +89,39 @@ body{
 
 /* The navigation menu links */
 .sidenav a {
-  padding: 8px 8px 8px 32px;
+  padding: 0px 0px 10px 0px;
   text-decoration: none;
   font-size: 25px;
-  color: #818181;
   display: block;
   transition: 0.3s;
+  margin-left: 20px;
+}
+
+.sidenav .sideNavItem {
+  color: #818181;
+  white-space: nowrap;
+  overflow: hidden;
+  /* text-overflow: ellipsis; */
+}
+
+.sidenav .sideNavItemHome {
+  color: #d4d4d4;
+  white-space: nowrap;
+  overflow: hidden;
+  /* text-overflow: ellipsis; */
 }
 
 /* When you mouse over the navigation links, change their color */
 .sidenav a:hover {
   color: #f1f1f1;
-}
-
-/* Position and style the close button (top right corner) */
-.sidenav .closebtn {
-  position: absolute;
-  top: 0;
-  right: 25px;
-  font-size: 36px;
-  margin-left: 50px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
 #main {
+  margin-left: 20px;
   transition: margin-left .5s;
   padding: 20px;
 }
@@ -115,3 +131,15 @@ body{
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
 }
+
+/* -------------- Code Highlighting -------------- */
+
+pre.prettyprint {
+  border: 0px;
+  padding-left: 10px;
+  background: #f5f5f5;
+  font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
+  font-size: 12px;
+}
+
+/* -------------- Markdown Styling -------------- */
