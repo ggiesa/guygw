@@ -1,0 +1,13 @@
+<div id="sideNavOpen" class="sidenav" onclick="toggleNav()">
+  <script type='text/javascript' src="<%= Routes.static_path(assigns[:conn], "/js/algo_sidenav.js") %>"></script>
+
+  <a class="sideNavItemHome" href="/">Home</a>
+  <a class="sideNavCategory">Data Structures</a>
+    <%= for topic <- get_all_datastructures_topics() do %>
+      <a class="sideNavItem" href="/datastructures/<%= topic %>"> <%= format_topic_for_disp(topic) %> </a>
+    <% end %>
+  <a class="sideNavCategory">Algorithms</a>
+    <%= for topic <- get_all_algorithms_topics() do %>
+      <a class="sideNavItem" href="/algorithms/<%= topic %>"> <%= format_topic_for_disp(topic) %> </a>
+    <% end %>
+</div>
