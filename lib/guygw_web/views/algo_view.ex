@@ -1,3 +1,7 @@
+defmodule LanguageConfig do
+  defstruct [:file_extension, :prettyprint_id, :display_name, :markdown_id, display_primary: false]
+end
+
 defmodule GuygwWeb.AlgoView do
   use GuygwWeb, :view
   require File
@@ -6,6 +10,27 @@ defmodule GuygwWeb.AlgoView do
   @static_main_path "./assets/static/blog_posts/algo/"
   @static_algo_path "./assets/static/blog_posts/algo/algorithms/"
   @static_ds_path "./assets/static/blog_posts/algo/datastructures/"
+  @supported_programming_languages [
+    python: %LanguageConfig{
+      file_extension: ".py",
+      prettyprint_id: "lang-python",
+      markdown_id: "python",
+      display_name: "Python",
+      display_primary: true
+    },
+    elixir: %LanguageConfig{
+      file_extension: ".ex",
+      prettyprint_id: "lang-ex",
+      markdown_id: "elixir",
+      display_name: "Elixir"
+    },
+    golang: %LanguageConfig{
+      file_extension: ".go",
+      prettyprint_id: "lang-go",
+      markdown_id: "golang",
+      display_name: "Go"
+    }
+  ]
 
   defp find_path(category, topic) do
     dir =
@@ -16,26 +41,30 @@ defmodule GuygwWeb.AlgoView do
     dir <> topic
   end
 
-  @doc """
-  Return formatted string of code to display in code example tab
-  """
-  def compose_python(category, topic) do
-    File.read!(find_path(category, topic) <> "/implementation.py")
+  defp random_string(length) do
+    :crypto.strong_rand_bytes(length) |> Base.url_encode64 |> binary_part(0, length)
   end
 
-
-  @doc """
-  Return formatted string of code to display in code example tab
-  """
-  def compose_elixir(category, topic) do
-    File.read!(find_path(category, topic) <> "/implementation.ex")
+  def supported_programming_languages do
+    Keyword.keys(@supported_programming_languages)
   end
 
-  @doc """
-  Return formatted string of code to display in code example tab
-  """
-  def compose_golang(category, topic) do
-    File.read!(find_path(category, topic) <> "/implementation.go")
+  def compose_code_example(language, category, topic) do
+
+    if Keyword.has_key?(@supported_programming_languages, language) do
+
+      language_params = @supported_programming_languages[language]
+      case File.read(find_path(category, topic) <> "/implementation#{language_params.file_extension}") do
+        {:ok, contents} ->
+          compose_code_example_html(contents, language_params)
+        {:error, _} ->
+          nil
+      end
+
+    else
+      nil
+    end
+
   end
 
   @doc """
@@ -98,5 +127,23 @@ defmodule GuygwWeb.AlgoView do
 
   def render_markdown_contents(category, topic) do
     convert_markdown_to_html(find_path(category, topic) <> "/copy.md")
+  end
+
+  def compose_code_example_html(code, language_params) do
+    id = random_string(10)
+    checked = if language_params.display_primary, do: "checked", else: ""
+
+    "<input name=\"tabbed\" id=\"#{id}\" type=\"radio\" #{checked}>
+    <section>
+      <h1>
+        <label for=\"#{id}\">#{language_params.display_name}</label>
+      </h1>
+      <div>
+        <pre class=\"prettyprint #{language_params.prettyprint_id}\">
+#{code}
+        </pre>
+      </div>
+    </section>"
+    |> Phoenix.HTML.raw
   end
 end

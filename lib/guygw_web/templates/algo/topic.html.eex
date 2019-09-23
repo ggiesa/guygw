@@ -15,7 +15,7 @@
       <div class="blogContents">
         <%=render_markdown_contents(assigns[:category], assigns[:topic])%>
       </div>
-      
+
       <%= render GuygwWeb.AlgoView, "code_examples.html", category: @category, topic: @topic %>
     </div>
   </body>

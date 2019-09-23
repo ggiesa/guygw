@@ -6,6 +6,7 @@ In Python, lists are implementations of dynamic referential arrays. Practically,
 
 Lists store pointers to the data it is initialized with:
 ```python
+import ctypes
 a = "red"
 lst = [a]
 
