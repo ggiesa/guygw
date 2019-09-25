@@ -161,11 +161,22 @@ pre.prettyprint {
 
 /* -------------- Markdown Styling -------------- */
 
+.blogContents {
+  max-width: 900px;
+}
+
 .blogContents h1 {
   color: #5383b0;
   border-bottom: 1px solid;
   border-color: #737373;
   width: 75%;
+}
+
+.blogContents h2 {
+  color: #636363;
+  border-bottom: 1px solid;
+  border-color: #858585;
+  width: 25%
 }
 
 .blogContents h3 {
