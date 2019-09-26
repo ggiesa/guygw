@@ -151,12 +151,11 @@ pre.prettyprint {
   border-radius: 1;
   border-color: black;
   padding-left: 10px;
-  /* background: #f5f5f5; */
   background: #f0f2f5;
   font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
   font-size: 12px;
-  /* width: 75% */
   white-space: pre-wrap;
+  width: 100%;
 }
 
 /* -------------- Markdown Styling -------------- */
@@ -176,7 +175,8 @@ pre.prettyprint {
   color: #636363;
   border-bottom: 1px solid;
   border-color: #858585;
-  width: 25%
+  width: 25%;
+  margin-top: 60px;
 }
 
 .blogContents h3 {
@@ -187,5 +187,5 @@ pre.prettyprint {
 }
 
 .blogContents .prettyprint {
-  width: 60%;
+  width: 100%;
 }

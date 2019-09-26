@@ -1,5 +1,4 @@
-// A simple and contrived example of a dynamic array in Go. This basically does exactly what
-// a slice does, just worse.
+// A simple and contrived example of a dynamic array in Go. This basically does exactly what a slice does, just worse.
 
 package main
 import "fmt"
@@ -38,6 +37,13 @@ func (a *DynamicArray) resize(new_capacity int) {
   }
   a.data = temp
   a.capacity = new_capacity
+}
+
+func (a *DynamicArray) get(index int) interface{} {
+  if index >= a.length || index < 0 {
+    panic("Invalid index")
+  }
+  return a.data[index]
 }
 
 func main() {

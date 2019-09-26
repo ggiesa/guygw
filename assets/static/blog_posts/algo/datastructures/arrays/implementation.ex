@@ -1,7 +1,7 @@
 defmodule DynamicArray do
   @moduledoc """
   A simple and contrived dynamic list implementation in Elixir. Similar to the
-  basic datastructures in Elixir, this implementation uses an underlying erlang library. 
+  basic datastructures in Elixir, this implementation uses an underlying erlang library.
 
   """
 
@@ -26,19 +26,19 @@ defmodule DynamicArray do
     }
   end
 
-  def get(array, ind) do
-    if ind > array.length - 1 do
-      :error
-    else
-      :array.get(ind, array.data)
-    end
-  end
-
   defp resize(array, new_capacity) do
     %DynamicArray{
       data: :array.resize(new_capacity, array.data),
       length: array.length,
       capacity: new_capacity
     }
+  end
+
+  def get(array, ind) do
+    if ind > array.length - 1 do
+      :error
+    else
+      :array.get(ind, array.data)
+    end
   end
 end
