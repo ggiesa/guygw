@@ -2,7 +2,6 @@ defmodule DynamicArray do
   @moduledoc """
   A simple and contrived dynamic list implementation in Elixir. Similar to the
   basic datastructures in Elixir, this implementation uses an underlying erlang library.
-
   """
 
   defstruct [data: :array.new(1), length: 0, capacity: 1]

@@ -6,15 +6,15 @@ type Stack struct {
   size int
 }
 
+// Add an element to the end of the array
 func (s *Stack) push(item interface{}) {
   s.data = append(s.data, item)
   s.size += 1
 }
 
+// Remove the last element in the array and return it
 func (s *Stack) pop() interface{} {
-  if s.size == 0 {
-    return nil
-  }
+  if s.size == 0 {return nil}
 
   item := s.data[s.size-1]
   s.data = s.data[:s.size-1]
@@ -22,7 +22,9 @@ func (s *Stack) pop() interface{} {
   return item
 }
 
+// Return the last element in the array; don't remove it
 func (s *Stack) peek() interface{} {
+  if s.size == 0 {return nil}
   return s.data[s.size-1]
 }
 

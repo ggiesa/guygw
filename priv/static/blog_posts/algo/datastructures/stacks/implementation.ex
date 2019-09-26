@@ -1,12 +1,16 @@
 
 
 defmodule Stack do
+  @moduledoc """
+  A simple stack implementation using Lists
+  """
 
   defstruct [data: [], size: 0]
 
   def new do; %Stack{} end
 
   def push(stack, item) do
+    # Because Elixir's lists are linked lists under the hood, we prepend rather than append.
     %Stack{
       data: [item | stack.data],
       size: stack.size + 1
