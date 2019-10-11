@@ -16,8 +16,8 @@ defmodule GuygwWeb.Router do
   scope "/", GuygwWeb do
     pipe_through :browser
 
-    get "/", PageController, :index
-    get "/algo", AlgoController, :index
+    get "/", AlgoController, :index
+    get "/:category/:topic", AlgoController, :serve_algorithm_topic
   end
 
   # Other scopes may use custom stacks.

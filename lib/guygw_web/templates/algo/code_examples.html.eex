@@ -1,0 +1,6 @@
+
+<div id='codeExamples' class="tabbed">
+  <%= for language <- supported_programming_languages do %>
+    <%= compose_code_example(language, assigns[:category], assigns[:topic]) %>
+  <%=end%>
+</div>
