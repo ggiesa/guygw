@@ -1,24 +1,29 @@
-/* Set the width of the side navigation to 250px and the left margin of the page content to 250px */
-function openNav() {
-  sideBar = document.getElementById("sideNavClosed");
-  sideBar.style.width = "220px";
-  sideBar.id = "sideNavOpen";
-  document.getElementById("main").style.marginLeft = "220px";
-}
 
-/* Set the width of the side navigation to 0 and the left margin of the page content to 0 */
-function closeNav() {
-  sideBar = document.getElementById("sideNavOpen");
-  sideBar.style.width = "20px";
-  sideBar.id = "sideNavClosed";
-  document.getElementById("main").style.marginLeft = "20px";
-}
+$(document).ready(function(){
 
-function toggleNav() {
-  let nav = document.getElementById("sideNavOpen");
-  if (nav === null) {
-    openNav()
-  } else {
-    closeNav()
-  }
-}
+  $("#sideNav").dblclick(function(){
+    if ($(".sideNavOpen").length) {
+      $(".sideNavOpen").css("width", "20px");
+      $(".sideNavOpen").attr("class", "sideNavClosed");
+      $("#main").css("marginLeft", "20px");
+    } else {
+      $(".sideNavClosed").css("width", "220px");
+      $(".sideNavClosed").attr("class", "sideNavOpen");
+      $("#main").css("marginLeft", "220px");
+    }
+  });
+
+  // Prevent click events from propagating and hiding sideNav
+  $("#sidenav .sideNavItemHome").click(function(e) {
+    e.stopPropagation();
+  });
+
+  $("#sideNav .sideNavCategory").click(function(e) {
+    e.stopPropagation();
+  });
+
+  $("#sideNav .sideNavItem").click(function(e) {
+    e.stopPropagation();
+  });
+
+});

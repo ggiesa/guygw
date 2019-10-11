@@ -10,6 +10,8 @@ import css from "../css/app.css"
 // Import dependencies
 //
 import "phoenix_html"
+import $ from "jquery"
+window.$ = window.jQuery = require("jquery");
 
 // Import local files
 //

@@ -1,4 +1,5 @@
-<div id="sideNavOpen" class="sidenav" onclick="toggleNav()">
+<div id="sideNav" class="sideNavOpen">
+  <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
   <script type='text/javascript' src="<%= Routes.static_path(assigns[:conn], "/js/algo_sidenav.js") %>"></script>
 
   <a class="sideNavItemHome" href="/">Home</a>
