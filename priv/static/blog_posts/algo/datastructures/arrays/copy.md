@@ -111,8 +111,8 @@ Linked lists are better suited to the immutable data paradigm in part because no
 
 This means that we can reuse tail nodes freely when composing new lists:
 ```elixir
-list1 = [2,3,4]
-list2 = [0,1]
+list1 = [0,1]
+list2 = [2,3,4]
 list3 = list1 ++ list2 # [0,1,2,3,4]
 ```
-Because nodes are immutable, we can safely reuse all of list1 when composing list3; we're only required to make a copy of list2 when we do this concatenation. More on this in the Linked List section.
+Because nodes are immutable, we can safely reuse all of list2 when composing list3; we're only required to make a copy of list1 when we do this concatenation. More on this in the Linked List section.

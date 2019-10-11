@@ -161,7 +161,7 @@ pre.prettyprint {
 /* -------------- Markdown Styling -------------- */
 
 .blogContents {
-  max-width: 900px;
+  max-width: 800px;
 }
 
 .blogContents h1 {
@@ -175,7 +175,7 @@ pre.prettyprint {
   color: #636363;
   border-bottom: 1px solid;
   border-color: #858585;
-  width: 25%;
+  width: 35%;
   margin-top: 60px;
 }
 
@@ -183,7 +183,7 @@ pre.prettyprint {
   color: #636363;
   border-bottom: 1px solid;
   border-color: #858585;
-  width: 25%
+  width: 35%
 }
 
 .blogContents .prettyprint {
