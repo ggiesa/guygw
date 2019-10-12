@@ -38,6 +38,6 @@ module.exports = (env, options) => ({
   plugins: [
     new MiniCssExtractPlugin({ filename: '../css/app.css' }),
     new CopyWebpackPlugin([{ from: 'static/', to: '../' }]),
-    new webpack.ProvidePlugin({$: 'jQuery', jQuery: 'jQuery'})
+    new webpack.ProvidePlugin({$: 'jquery', jQuery: 'jquery'})
   ]
 });
