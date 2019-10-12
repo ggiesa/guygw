@@ -14,15 +14,15 @@ $(document).ready(function(){
   });
 
   // Prevent click events from propagating and hiding sideNav
-  $("#sidenav .sideNavItemHome").click(function(e) {
+  $(".sideNavItemHome").click(function(e) {
     e.stopPropagation();
   });
 
-  $("#sideNav .sideNavCategory").click(function(e) {
+  $(".sideNavCategory").click(function(e) {
     e.stopPropagation();
   });
 
-  $("#sideNav .sideNavItem").click(function(e) {
+  $(".sideNavItem").click(function(e) {
     e.stopPropagation();
   });
 

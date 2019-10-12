@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
+  </head>
+
+  <body id="homeBody">
+    <!-- TopNav Template -->
+    <div>
+      <img src="/images/home_background.jpg" id="background">
+      <img src="/images/portrait.jpeg" id="portrait">
+      <%= render GuygwWeb.AlgoView, "center_nav.html", conn: @conn %>
+    </div>
+
+  </body>
+<html>
