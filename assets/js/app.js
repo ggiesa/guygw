@@ -18,3 +18,4 @@ window.$ = window.jQuery = require("jquery");
 // Local files can be imported directly using relative paths, for example:
 // import socket from "./socket"
 import "./algo_sidenav.js";
+import "./homepage_loading.js";
