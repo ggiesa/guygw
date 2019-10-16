@@ -260,6 +260,37 @@ pre.prettyprint {
   margin: 0;
   padding: 0;
   overflow: hidden;
+  height: 100vh;
+}
+
+/* -------------- Home Overlay -------------- */
+.homeOverlay {
+  position: fixed;
+  display: block;
+  width: 100%;
+  z-index: 2;
+}
+
+#overlayLower {
+  background-color: black;
+  position: absolute;
+  height: 50vh;
+  top: 50vh;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: 1.7s;
+}
+
+#overlayUpper {
+  position: absolute;
+  background-color: black;
+  height: 50vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: 1.7s;
 }
 
 /* This file is for your main application css. */

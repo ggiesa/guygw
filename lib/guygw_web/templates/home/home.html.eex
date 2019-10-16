@@ -5,8 +5,16 @@
   </head>
 
   <body id="homeBody">
+    <script src="<%= Routes.static_path(@conn, "/js/app.js") %>"/></script>
+
     <!-- TopNav Template -->
     <div>
+
+      <div class="homeOverlay">
+        <div id='overlayUpper'></div>
+        <div id='overlayLower'></div>
+      </div>
+
       <img src="/images/home_background.jpg" id="background">
       <img src="/images/portrait.jpeg" id="portrait">
       <%= render GuygwWeb.AlgoView, "center_nav.html", conn: @conn %>
