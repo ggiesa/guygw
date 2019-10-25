@@ -17,8 +17,8 @@ defmodule GuygwWeb.Router do
     pipe_through :browser
 
     get "/", HomeController, :index
-    get "/blog/home", AlgoController, :index
-    get "/blog/:category/:topic", AlgoController, :serve_algorithm_topic
+    get "/blog/home", BlogController, :index
+    get "/blog/:category/:topic/:sub_topic", BlogController, :serve_blog_topic
   end
 
   # scope "/api", GuygwWeb do

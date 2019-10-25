@@ -97,7 +97,7 @@ body{
   margin-left: 20px;
 }
 
-#sideNav .sideNavItem {
+#sideNav .sideNavSubTopic {
   color: #818181;
   white-space: nowrap;
   overflow: hidden;
@@ -105,7 +105,7 @@ body{
   font-size: 20px;
 }
 
-#sideNav .sideNavItemHome {
+#sideNav .sideNavHome {
   color: #d4d4d4;
   white-space: nowrap;
   overflow: hidden;
@@ -115,7 +115,7 @@ body{
   padding-bottom: 0px;
 }
 
-#sideNav .sideNavCategory {
+#sideNav .sideNavTopic {
   color: #9e9e9e;
   white-space: nowrap;
   overflow: hidden;
@@ -158,7 +158,6 @@ pre.prettyprint {
 }
 
 /* -------------- Markdown Styling -------------- */
-
 .blogContents {
   max-width: 800px;
 }
@@ -185,10 +184,47 @@ pre.prettyprint {
   width: 35%
 }
 
+.blogContents a {
+  color: #bd6f22;
+  text-decoration: none;
+  font-weight: bold;
+}
+.blogContents table {
+  margin-top: 0;
+  margin-bottom: 16px;
+  border-spacing: 0;
+  border-collapse: collapse;
+  box-sizing: border-box;
+  border-color: grey;
+  display: block;
+  overflow: auto;
+}
+
+.blogContents thead {
+  display: table-header-group;
+  vertical-align: middle;
+  border-color: inherit;
+}
+
 .blogContents .prettyprint {
   width: 100%;
 }
 
+.blogContents th,
+.blogContents tbody td {
+  border: 1px solid #dfe2e5;
+  padding: 6px 16px;
+  padding-right: 30px;
+}
+
+.blogContents tbody tr {
+  background-color: #fff;
+  border-top: 1px solid #c6cbd1;
+}
+
+.blogContents table tr:nth-child(2n) {
+  background-color: #f6f8fa;
+}
 
 /* -------------- Top Nav -------------- */
 .centerNav {

@@ -1,0 +1,11 @@
+<div id="sideNav" class="sideNavOpen">
+  <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
+
+  <a class="sideNavHome" href="/blog/home">Home</a>
+    <%= for topic <- get_topics(@category) do %>
+      <a class="sideNavTopic"> <%= format_topic_for_disp(topic) %> </a>
+        <%= for sub_topic <- get_sub_topics(@category, topic) do %>
+          <a class="sideNavSubTopic" href="/blog/<%= @category %>/<%= topic %>/<%= sub_topic %>"> <%= format_topic_for_disp(sub_topic) %> </a>
+        <% end %>
+    <% end %>
+</div>
