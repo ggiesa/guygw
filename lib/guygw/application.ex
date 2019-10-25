@@ -6,6 +6,10 @@ defmodule Guygw.Application do
   use Application
 
   def start(_type, _args) do
+
+    # Generate static config file with blog topic options
+    BlogTopics.generate_config()
+
     # List all child processes to be supervised
     children = [
       # Start the Ecto repository
@@ -28,4 +32,50 @@ defmodule Guygw.Application do
     GuygwWeb.Endpoint.config_change(changed, removed)
     :ok
   end
+end
+
+defmodule BlogTopics do
+  @blog_location "assets/static/blog/"
+  @config_location "lib/guygw/blog_topics.ex"
+
+  defp list_subdirs(path) do
+    File.ls!(path)
+    |> Enum.filter(fn f -> !String.contains?(f, ".") end)
+  end
+
+  def get_categories do
+    list_subdirs(@blog_location)
+  end
+
+  def get_topics(category) do
+    list_subdirs(@blog_location <> category)
+  end
+
+  def get_sub_topics(category, topic) do
+    list_subdirs(@blog_location <> category <> "/" <> topic)
+  end
+
+  def compose_blog_topics do
+    Map.new(get_categories(), fn category -> {category,
+      Map.new(get_topics(category), fn topic -> {topic,
+        get_sub_topics(category, topic)} end
+      )} end
+    )
+  end
+
+  def generate_config do
+    code = "
+    defmodule BlogConfig do
+      @blog_topics #{inspect compose_blog_topics()}
+
+      def blog_topics do
+        @blog_topics
+      end
+    end
+    "
+    File.write!(@config_location, code)
+    Code.compile_file(@config_location)
+    Code.ensure_loaded(BlogConfig)
+  end
+
 end

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+    <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
+  </head>
+
+  <body>
+
+    <!-- Sidenav Template -->
+    <%= render GuygwWeb.BlogView, "sidenav.html", conn: @conn, category: @category%>
+
+    <div id='main'>
+
+      <div class="blogContents">
+        <%=render_markdown_contents(@category, @topic, @sub_topic)%>
+      </div>
+
+      <%= render GuygwWeb.BlogView, "code_examples.html", category: @category, topic: @topic, sub_topic: @sub_topic %>
+    </div>
+  </body>
+</html>

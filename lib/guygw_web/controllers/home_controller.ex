@@ -6,5 +6,4 @@ defmodule GuygwWeb.HomeController do
     |> put_layout(false)
     |> render("home.html")
   end
-  
 end

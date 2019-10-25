@@ -1,0 +1,3 @@
+func something() {
+  return "Hi!"
+}

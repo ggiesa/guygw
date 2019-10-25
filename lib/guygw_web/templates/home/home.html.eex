@@ -17,7 +17,7 @@
 
       <img src="/images/home_background.jpg" id="background">
       <img src="/images/portrait.jpeg" id="portrait">
-      <%= render GuygwWeb.AlgoView, "center_nav.html", conn: @conn %>
+      <%= render GuygwWeb.HomeView, "center_nav.html", conn: @conn %>
     </div>
 
   </body>
