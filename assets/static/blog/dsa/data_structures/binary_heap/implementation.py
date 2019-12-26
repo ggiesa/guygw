@@ -72,14 +72,14 @@ class BinaryHeap:
             node_ind -= 1
 
 
+def test_binary_heap():
+    inp = [1,10,5,6,11,22,3,50,1,2,51]
 
-inp = [1,10,5,6,11,22,3,50,1,2,51]
+    a = BinaryHeap()
+    a.build_heap(inp)
 
-a = BinaryHeap()
-a.build_heap(inp)
+    b = BinaryHeap()
+    for val in inp:
+        b.insert(val)
 
-b = BinaryHeap()
-for val in inp:
-    b.insert(val)
-
-assert a._heap == b._heap
+    assert a._heap == b._heap
